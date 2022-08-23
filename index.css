@@ -13,7 +13,7 @@
   --fs-800: 3.5rem;
   --fs-700: 1.5rem;
   --fs-600: 1rem;
-  --fs-500: 1.75rem;
+  --fs-500: 1rem;
   --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
@@ -29,6 +29,8 @@
     --fs-800: 5rem;
     --fs-700: 2.5rem;
     --fs-600: 1.5rem;
+    /*20 px*/
+    --fs-500: 1.25rem;
     --fs-400: 1rem;
   }
 }
@@ -39,6 +41,8 @@
     --fs-800: 6.25rem;
     --fs-700: 3.5rem;
     --fs-600: 2rem;
+    /*28 px*/
+    --fs-500: 1.75rem;
     --fs-400: 1.125rem;
   }
 }
@@ -131,6 +135,12 @@ select {
   }
 }
 
+/* Fixes that stupid hidden issue where it wasn't showing on the <picture> elements */
+
+[hidden] {
+  display: none !important;
+}
+
 /*----------------*/
 /*Utility Classes */
 /*----------------*/
@@ -154,57 +164,14 @@ select {
   margin-top: var(--flow-space, 1rem);
 }
 
+.flow--space-small {
+  --flow-space: 0.75rem;
+}
+
 .container {
   padding-inline: 2em;
   margin-inline: auto;
   max-width: 80rem;
-}
-
-.grid-container {
-  text-align: center;
-  border: 5px solid limegreen;
-  display: grid;
-  place-items: center;
-  padding-inline: 1rem;
-}
-
-.grid-container * {
-  max-width: 50ch;
-}
-
-/* For sizes greater than tablet sizes of 720px (desktops) */
-@media (min-width: 45em) {
-  .grid-container {
-    text-align: left;
-    column-gap: var(--container-gap, 2rem);
-    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
-        1rem,
-        1fr
-      );
-  }
-
-  .grid-container > *:first-child {
-    grid-column: 2;
-    outline: 1px solid red;
-  }
-
-  .grid-container > *:last-child {
-    grid-column: 3;
-    outline: 1px solid yellow;
-  }
-
-  .grid-container--home {
-    padding-bottom: max(6rem, 20vh);
-    align-items: end;
-  }
-}
-
-.grid-container > *:first-child {
-  outline: 1px solid red;
-}
-
-.grid-container > *:last-child {
-  outline: 1px solid yellow;
 }
 
 /* Screen Reader Utility Class */
@@ -265,9 +232,11 @@ select {
 .ff-serif {
   font-family: var(--ff-serif);
 }
+
 .ff-sans-cond {
   font-family: var(--ff-sans-cond);
 }
+
 .ff-sans-normal {
   font-family: var(--ff-sans-normal);
 }
@@ -275,9 +244,11 @@ select {
 .letter-spacing-1 {
   letter-spacing: 4.75px;
 }
+
 .letter-spacing-2 {
   letter-spacing: 2.7px;
 }
+
 .letter-spacing-3 {
   letter-spacing: 2.35px;
 }
@@ -289,24 +260,31 @@ select {
 .fs-900 {
   font-size: var(--fs-900);
 }
+
 .fs-800 {
   font-size: var(--fs-800);
 }
+
 .fs-700 {
   font-size: var(--fs-700);
 }
+
 .fs-600 {
   font-size: var(--fs-600);
 }
+
 .fs-500 {
   font-size: var(--fs-500);
 }
+
 .fs-400 {
   font-size: var(--fs-400);
 }
+
 .fs-300 {
   font-size: var(--fs-300);
 }
+
 .fs-200 {
   font-size: var(--fs-200);
 }
@@ -450,6 +428,7 @@ select {
     outline-offset: 5px;
   }
 }
+
 /* for screen sizes greater than 35em/560px*/
 @media (min-width: 35em) {
   .primary-navigation {
@@ -463,6 +442,7 @@ select {
     display: none;
   }
 }
+
 /* for screen sizes greater than 45em/720px*/
 @media (min-width: 45em) {
   .primary-header::after {
@@ -488,9 +468,10 @@ select {
 /* selects all direct descendents*/
 .underline-indicators > * {
   cursor: pointer;
-  padding: var(--underline-gap, 1rem) 0;
+  padding: var(--underline-gap, 0.5rem) 0;
   border: 0;
   border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
+  background-color: transparent;
 }
 
 .underline-indicators > *:hover,
@@ -553,4 +534,239 @@ body {
   .home {
     background-image: url(./assets/home/background-home-desktop.jpg);
   }
+}
+
+/* Destination */
+.destination {
+  background-image: url(./assets/destination/background-destination-mobile.jpg);
+}
+
+/* For sizes greater than phone sizes of 560px (tablets) */
+@media (min-width: 35rem) {
+  .destination {
+    background-position: center center;
+    background-image: url(./assets/destination/background-destination-tablet.jpg);
+  }
+}
+
+/* For sizes greater than tablet sizes of 720px (desktops) */
+@media (min-width: 45rem) {
+  .destination {
+    background-image: url(./assets/destination/background-destination-desktop.jpg);
+  }
+}
+
+/* crew */
+.crew {
+  background-image: url(./assets/crew/background-crew-mobile.jpg);
+}
+
+/* For sizes greater than phone sizes of 560px (tablets) */
+@media (min-width: 35rem) {
+  .crew {
+    background-position: center center;
+    background-image: url(./assets/crew/background-crew-tablet.jpg);
+  }
+}
+
+/* For sizes greater than tablet sizes of 720px (desktops) */
+@media (min-width: 45rem) {
+  .crew {
+    background-image: url(./assets/crew/background-crew-desktop.jpg);
+  }
+}
+
+/* For sizes greater than phone sizes of 560px (tablets) */
+@media (min-width: 35rem) {
+  .home {
+    background-position: center center;
+    background-image: url(./assets/home/background-home-tablet.jpg);
+  }
+}
+
+/* ----------------------------- */
+/* Layout                        */
+/* ----------------------------- */
+
+.grid-container {
+  text-align: center;
+  /*border: 5px solid limegreen;*/
+  display: grid;
+  place-items: center;
+  padding-inline: 1rem;
+  padding-bottom: 4rem;
+}
+
+.grid-container p:not([class]) {
+  max-width: 50ch;
+}
+
+.numbered-title {
+  grid-area: title;
+}
+
+/* Destination Layout */
+
+.grid-container--destination {
+  --flow-space: 2rem;
+  grid-template-areas:
+    "title"
+    "image"
+    "tabs"
+    "content";
+}
+
+.grid-container--destination > picture {
+  grid-area: image;
+  max-width: 60%;
+}
+
+.grid-container--destination > .tab-list {
+  grid-area: tabs;
+}
+
+.grid-container--destination > .destination-info {
+  grid-area: content;
+}
+
+.destination-meta {
+  flex-direction: column;
+  border-top: 1px solid hsl(var(--clr-white) / 0.1);
+  padding-top: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.destination-meta p {
+  font-size: 1.75rem;
+}
+
+/* crew layout */
+
+.grid-container--crew {
+  --flow-space: 2rem;
+  grid-template-areas:
+    "title"
+    "image"
+    "tabs"
+    "content";
+}
+
+.grid-container--crew > picture {
+  grid-area: image;
+  max-width: 60%;
+  border-bottom: 1px solid hsl(var(--clr-white) / 0.1);
+}
+
+.grid-container--crew > .dot-indicators {
+  grid-area: tabs;
+}
+
+.grid-container--crew > .crew-details {
+  grid-area: content;
+}
+
+.crew-details h2 {
+  opacity: 0.5;
+}
+
+/* Media Queries (All Layouts) */
+
+/* For sizes greater than sizes of 560px (tablets) */
+@media (min-width: 35em) {
+  .numbered-title {
+    justify-self: start;
+    margin-top: 2rem;
+  }
+
+  .destination-meta {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .grid-container--crew {
+    padding-bottom: 0;
+    grid-template-areas:
+      "title"
+      "content"
+      "tabs"
+      "image";
+  }
+}
+
+/* For sizes greater than sizes of 720px (desktops) */
+@media (min-width: 45em) {
+  .grid-container {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        1rem,
+        1fr
+      );
+  }
+
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
+
+  .grid-container--home > *:first-child {
+    grid-column: 2;
+    outline: 1px solid red;
+  }
+
+  .grid-container--home > *:last-child {
+    grid-column: 3;
+    outline: 1px solid yellow;
+  }
+
+  .grid-container--destination {
+    justify-items: start;
+    align-content: start;
+    grid-template-areas:
+      ". title title ."
+      ". image tabs ."
+      ". image content .";
+  }
+
+  .grid-container--destination > picture,
+  .grid-container--crew > picture {
+    max-width: 90%;
+  }
+
+  .destination-meta {
+    /* Choose what's smaller below*/
+    --gap: min(6vw, 6rem);
+    justify-content: start;
+  }
+
+  .grid-container--crew {
+    grid-template-areas:
+      ". title title ."
+      ". content image ."
+      ". tabs image .";
+  }
+
+  .grid-container--crew > .dot-indicators {
+    justify-self: start;
+  }
+
+  .grid-container--crew > img {
+    align-self: end;
+  }
+}
+
+.grid-container > *:first-child {
+  /*outline: 1px solid red;*/
+}
+
+.grid-container > *:last-child {
+  /*outline: 1px solid yellow;*/
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+[role="tab"]:focus {
+  color: limegreen;
 }
